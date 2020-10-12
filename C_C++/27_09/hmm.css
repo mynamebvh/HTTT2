@@ -1,0 +1,27 @@
+.hoang {
+    list-style: none;
+    display: flex;
+}
+
+.hoang li {
+    padding: 20px;
+    background-color: lightcoral;
+}
+
+.hoangdz {
+    position: relative;
+
+}
+.hoangdz ul {
+    list-style: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left:-40px;
+    width: 20px;
+}
+
+.hoangdz:hover .hoang1{
+    display: block;
+}
+

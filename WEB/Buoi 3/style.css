@@ -1,0 +1,22 @@
+
+
+.menu{
+  background-color: black;
+  color: white;
+  
+}
+
+.hieu1 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.hieu1 > li:hover {
+  background-color: tomato;
+}
+
+.coc {
+  position: relative;
+} 
