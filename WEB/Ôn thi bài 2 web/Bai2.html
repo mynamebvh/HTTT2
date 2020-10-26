@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <label for="">Ngày</label>
+    <select name="" id="day">
+    </select>
+
+    <label for="">Tháng</label>
+    <select name="" id="month">
+      
+    </select>
+
+    <label for="">Năm</label>
+    <select name="" id="year">
+
+    </select>
+  </form>
+</body>
+<script>
+  let defaultSelecion = "<option></option>";
+  let month = document.getElementById("month");
+  let monCheck = [1, 3, 5, 7, 8, 10, 12];
+  let day = document.getElementById("day");
+  
+  day.innerHTML = render(1,31);
+  month.innerHTML = render(1,12);
+  year.innerHTML = render(2001,2020);
+
+  month.addEventListener("change", () => {
+    if(monCheck.indexOf(parseInt(month.value)) >= 0 && month.value != "2"){
+        day.innerHTML = render(1,31);
+      }
+      else if(month.value === "2"){
+        day.innerHTML = render(1,28);
+      }
+      else{
+        day.innerHTML = render(1,30);
+      }
+  })
+
+  year.addEventListener("change", () => {
+    
+    if(checkYear(parseInt(year.value)) && month.value === "2"){
+      day.innerHTML = render(1,29);
+    }
+    else{
+      if(monCheck.indexOf(parseInt(month.value)) >= 0 && month.value != "2"){
+        day.innerHTML = render(1,31);
+      }
+      else if(month.value === "2"){
+        day.innerHTML = render(1,28);
+      }
+      else {
+        day.innerHTML = render(1,30);
+      }
+    }
+  })
+  
+  function render(start = 1, end){
+    let arr = [];
+    for(var i = start ; i <= end; i++){
+      arr.push(`<option value="${i}">${i}</option>`);
+    }
+    return defaultSelecion + (arr.join(""));
+  }
+
+  function checkYear(year){
+    if(((year % 4 === 0) &&(year % 100 != 0)) || (year % 400 === 0)){
+      return true;
+    }
+  }
+</script>
+</html>
+
